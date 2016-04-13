@@ -15,11 +15,10 @@ public class Main {
                 "/",
                 ((request, response) -> {
                     HashMap m = new HashMap();
-                    m.put("wrong","wrong password");
                     if (user == null) {
                         return new ModelAndView(m, "index.html");
                     } else if (user.password != "42") {
-                        return new ModelAndView(m, "index.html");
+                        return new ModelAndView(m, "index2.html");
                     } else {
                         m.put("user", user);
                         return new ModelAndView(m, "messages.html");
