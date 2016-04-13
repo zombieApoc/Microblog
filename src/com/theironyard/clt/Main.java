@@ -15,10 +15,13 @@ public class Main {
                 "/",
                 ((request, response) -> {
                     HashMap m = new HashMap();
+                    m.put("wrong","wrong password");
                     if (user == null) {
                         return new ModelAndView(m, "index.html");
+                    } else if (user.password != "42") {
+                        return new ModelAndView(m, "index.html");
                     } else {
-                        m.put("name", user.name);
+                        m.put("user", user);
                         return new ModelAndView(m, "messages.html");
                     }
                 }),
@@ -29,17 +32,22 @@ public class Main {
                 "/login",
                 ((request, response) -> {
                     String name = request.queryParams("loginName");
+                    String password = request.queryParams("loginPassword");
                     user = new User(name);
                     response.redirect("/");
                     return "";
                 })
         );
 
+
+
         Spark.post(
                 "/message",
                 ((request, response) -> {
                     String message = request.queryParams("message");
-                    
+                    user.posts.add(message);
+                    response.redirect("/");
+                    return "";
                 })
         );
     }
