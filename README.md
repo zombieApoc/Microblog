@@ -1,5 +1,13 @@
 # Microblog
 
+Let's talk twitter-esque Microblogs!
+
+But first, enjoy this kitten about to do battle with Chuck Norris.
+
+![ninjakitten]  
+
+Now for our assignment..
+
 ## Description
 
 Make a web application that allows you write short messages. When you click "Submit", it will refresh and show a list of messages you wrote.
@@ -21,3 +29,4 @@ Make a web application that allows you write short messages. When you click "Sub
 
 ![screenshot1.png](https://tiy-learn-content.s3.amazonaws.com/7dd46f2a-screenshot1.png)
 ![screenshot2.png](https://tiy-learn-content.s3.amazonaws.com/aa694c84-screenshot2.png)
+[ninjakitten]:http://49.media.tumblr.com/4fd842fdc52f6fd81e0859d3338615f1/tumblr_o2ljp5R4321r868elo1_500.gif
