@@ -6,8 +6,12 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 import java.util.HashMap;
 
+
+
 public class Main {
     static User user;
+
+
     public static void main(String[] args) {
         Spark.init();
 
@@ -17,8 +21,6 @@ public class Main {
                     HashMap m = new HashMap();
                     if (user == null) {
                         return new ModelAndView(m, "index.html");
-                    } else if (user.password != "42") {
-                        return new ModelAndView(m, "index2.html");
                     } else {
                         m.put("user", user);
                         return new ModelAndView(m, "messages.html");
@@ -32,9 +34,14 @@ public class Main {
                 ((request, response) -> {
                     String name = request.queryParams("loginName");
                     String password = request.queryParams("loginPassword");
-                    user = new User(name);
-                    response.redirect("/");
-                    return "";
+                    User newUser = new User(name);
+                    if (newUser.password.equals(password)) {
+                        response.redirect("/");
+                        return "";
+                    } else {
+                        return "invalid password ya git!";
+                    }
+
                 })
         );
 

@@ -10,11 +10,10 @@ public class User {
 
     public User(String name) {
 
-        posts.add("hi");
-        posts.add("Twitter sucks!");
-        posts.add("Time for fun");
+
 
 
         this.name = name;
+
     }
 }
