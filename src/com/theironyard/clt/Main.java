@@ -33,9 +33,10 @@ public class Main {
                 "/login",
                 ((request, response) -> {
                     String name = request.queryParams("loginName");
-                    String password = request.queryParams("loginPassword");
+                    String attempt = request.queryParams("loginPassword");
                     User newUser = new User(name);
-                    if (newUser.password.equals(password)) {
+                    if (newUser.password.equals(attempt)) {
+                        user = newUser;
                         response.redirect("/");
                         return "";
                     } else {
