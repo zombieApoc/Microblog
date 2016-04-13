@@ -34,5 +34,13 @@ public class Main {
                     return "";
                 })
         );
+
+        Spark.post(
+                "/message",
+                ((request, response) -> {
+                    String message = request.queryParams("message");
+                    
+                })
+        );
     }
 }
